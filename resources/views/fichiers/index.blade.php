@@ -3,12 +3,13 @@
 @section('titleHeader', trans('lang.text_file_repository'))
 @section('content')
 <div class="fichiers">
-    <a href="{{ route('fichiers.create') }}">@lang('lang.text_add_file')</a>
+    <a href="{{ route('fichiers.create') }}" class="btn btn-primary">@lang('lang.text_add_file')</a>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>@lang('lang.text_title')</th>
                 <th>@lang('lang.text_file_added_by')</th>
+                <th>@lang('lang.text_date_uploaded')</th>
                 <th>@lang('lang.text_download')</th>
                 @if(Auth::check())
                     @if($fichiers->where('user_id', Auth::user()->id)->count() > 0)
@@ -28,11 +29,14 @@
                         <p>{{ $fichier->televerseur->name }}</p>
                     </td>
                     <td>
-                        <a href="{{ route('fichiers.telecharger', $fichier->nom_fichier) }}">@lang('lang.text_download')</a>
+                        <p>{{ $fichier->updated_at }}</p>
+                    </td>
+                    <td>
+                        <a href="{{ route('fichiers.telecharger', $fichier->nom_fichier) }}" class="btn btn-info">@lang('lang.text_download')</a>
                     </td>
                     @if(Auth::check() && $fichier->user_id === Auth::user()->id)
                         <td>
-                            <a href="{{route('fichiers.edit', $fichier->id) }}">@lang('lang.text_edit')</a>
+                            <a href="{{route('fichiers.edit', $fichier->id) }}" class="btn btn-success">@lang('lang.text_edit')</a>
                         </td>
                         <td>
                             <form action="{{ route('fichiers.delete', $fichier->id) }}" method="POST">
@@ -51,4 +55,5 @@
     </table>
     {{$fichiers}}
 </div>
+
 @endsection

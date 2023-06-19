@@ -78,6 +78,7 @@ return [
     'text_file_added_by' => 'Téléversé par:',
     'text_download' => 'Télécharger le fichier',
     'text_title' => 'Titre',
+    'text_date_uploaded' => 'Téléversé le:',
 
 // fichiers.create
     'text_create_file' => 'Formulaire de téléversement',

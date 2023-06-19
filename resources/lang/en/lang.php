@@ -83,6 +83,7 @@ return [
     'text_file_added_by' => 'Uploaded by:',
     'text_download' => 'Download file',
     'text_title' => 'Title',
+    'text_date_uploaded' => 'Uploaded on    :',
 
 // fichiers.create
     'text_create_file' => 'File upload form',
