@@ -13,7 +13,7 @@
 <body>
     @php $lang = session('locale') @endphp
     <nav>
-        <a href="/">@lang('lang.text_hello') {{Auth::user() ? Auth::user()->name : trans('lang.text_guest') }}</a>
+        <a href="{{ route('accueil') }}">@lang('lang.text_hello') {{Auth::user() ? Auth::user()->name : trans('lang.text_guest') }}</a>
         @guest
         <a href="{{ route('login') }}">@lang('lang.text_login')</a>
         @else

@@ -47,8 +47,8 @@ Route::get('articles', [ArticleController::class, 'index'])->name('articles.inde
 Route::get('ecrire', [ArticleController::class, 'create'])->name('articles.create');
 Route::post('ecrire', [ArticleController::class, 'store'])->name('articles.create');
 
-Route::get('articles/{article}', [ArticleController::class, 'edit'])->name('articles.edit');
-Route::put('articles/{article}', [ArticleController::class, 'update'])->name('articles.edit');
+Route::get('articles-edit/{article}', [ArticleController::class, 'edit'])->name('articles.edit');
+Route::put('articles-edit/{article}', [ArticleController::class, 'update'])->name('articles.edit');
 
 Route::delete('articles/{article}', [ArticleController::class, 'destroy'])->name('articles.delete');
 

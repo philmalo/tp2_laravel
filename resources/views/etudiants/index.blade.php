@@ -14,10 +14,12 @@
         <tr>
             <th>@lang('lang.text_name')</th>
             <th>@lang('lang.text_detail')</th>
-            @if($etudiants->where('user_id', Auth::user()->id)->count() > 0)
+            @auth
+                @if($etudiants->where('user_id', Auth::user()->id)->count() > 0)
 
-                <th>@lang('lang.text_edit')</th>
-            @endif
+                    <th>@lang('lang.text_edit')</th>
+                @endif
+            @endauth
             @if($admin)
             <th>@lang('lang.text_delete')</th>
             @endif
